@@ -1,4 +1,21 @@
-## Using Sentry in Unity
+<p align="center">
+  <a href="https://sentry.io" target="_blank" align="center">
+    <img src="https://sentry-brand.storage.googleapis.com/sentry-logo-black.png" width="280">
+  </a>
+  <br />
+</p>
+
+Sentry (lite) SDK for Unity
+===========
+
+This is the stable Sentry SDK for Unity. It's running in production in many games and sends millions of events every month to [sentry.io](sentry.io).
+If you are used to other Sentry SDKs, you might find that the API here is smaller. This is by design, and this SDK is lightweight and compile with your game.
+It supports any platform that you can target with Unity.
+
+### Native Crash Support
+
+Sentry is [working on a Unity SDK](https://github.com/getsentry/sentry-unity) based on the .NET SDK which includes offline caching and native crashes.
+Previews of that package are available. If you'd like to get involved in the SDK development, you can [join Sentry's Discord server and say hi on the `#unity` channel](https://discord.gg/UmjjsgRAFa).
 
 ### Installation
 
@@ -11,15 +28,19 @@ Open the package manager, click the + icon, and add git url.
 In the field that opens, enter the url of the repo, i.e.:
 
 ```
-https://github.com/getsentry/sentry-unity.git
+https://github.com/getsentry/sentry-unity-lite.git
 ```
 
 If you wish to install a specific version you can do that as well by appending
 it to the url.
 
 ```
-https://github.com/getsentry/sentry-unity.git#0.0.6"
+https://github.com/getsentry/sentry-unity-lite.git#1.0.0"
 ```
+
+#### Through unitypackage
+
+The [Releases page](https://github.com/getsentry/sentry-unity-lite/releases) include a `.unitypackage` which you can simply drag and drop into your project.
 
 ### Usage
 
@@ -31,7 +52,7 @@ in your whole project. To add it programatically do:
 
 ```C#
 var sentry = myGameObject.AddComponent(typeof(SentrySdk)) as SentrySdk;
-sentry.dsn = "__YOUR_DSN__";
+sentry.dsn = "__YOUR_DSN__"; // get it on sentry.io when you create a project, or on project settings.
 ```
 
 The SDK needs to know which project within Sentry your errors should go to. That's defined via the DSN.
@@ -74,7 +95,9 @@ The lowest required version is Unity 5.6.
 Previous versions might work but were not tested and will not be supported.
 
 ## Resources
+
+* [![Documentation](https://img.shields.io/badge/documentation-sentry.io-green.svg)](https://docs.sentry.io/platforms/dotnet/)
+* [![Forum](https://img.shields.io/badge/forum-sentry-green.svg)](https://forum.sentry.io/c/sdks)
 * [![Discord](https://img.shields.io/discord/621778831602221064)](https://discord.gg/Ww9hbqr)
 * [![Stack Overflow](https://img.shields.io/badge/stack%20overflow-sentry-green.svg)](http://stackoverflow.com/questions/tagged/sentry)
-* [![Forum](https://img.shields.io/badge/forum-sentry-green.svg)](https://forum.sentry.io/c/sdks)
-* Follow [@getsentry](https://twitter.com/getsentry) on Twitter for updates
+* [![Twitter Follow](https://img.shields.io/twitter/follow/getsentry?label=getsentry&style=social)](https://twitter.com/intent/follow?screen_name=getsentry)
