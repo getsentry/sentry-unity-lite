@@ -12,11 +12,6 @@ This is the stable Sentry SDK for Unity. It's running in production in many game
 If you are used to other Sentry SDKs, you might find that the API here is smaller. This is by design, and this SDK is lightweight and compile with your game.
 It supports any platform that you can target with Unity.
 
-### Native Crash Support
-
-Sentry is [working on a Unity SDK](https://github.com/getsentry/sentry-unity) based on the .NET SDK which includes offline caching and native crashes.
-Previews of that package are available. If you'd like to get involved in the SDK development, you can [join Sentry's Discord server and say hi on the `#unity` channel](https://discord.gg/UmjjsgRAFa).
-
 ### Installation
 
 #### Through the package manager
@@ -93,6 +88,12 @@ run headless. There are two important APIs that are worth considering.
 
 The lowest required version is Unity 5.6.
 Previous versions might work but were not tested and will not be supported.
+
+
+### Native Crash Support
+
+Sentry is [working on a Unity SDK](https://github.com/getsentry/sentry-unity) based on the .NET SDK which includes offline caching and native crashes.
+Previews of that package are available. If you'd like to get involved in the SDK development, you can [join Sentry's Discord server and say hi on the `#unity` channel](https://discord.gg/UmjjsgRAFa).
 
 ## Resources
 
