@@ -21,7 +21,7 @@ It supports any platform that you can target with Unity.
 Open the package manager, click the + icon, and add git url.
 
 ```
-https://github.com/getsentry/sentry-unity-lite.git#1.0.1
+https://github.com/getsentry/sentry-unity-lite.git#1.0.2
 ```
 
 #### Through unitypackage
