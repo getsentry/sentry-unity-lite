@@ -1,7 +1,7 @@
 {
-  "name": "io.sentry.sentry-unity",
-  "version": "0.0.5",
-  "displayName": "Sentry Unity",
+  "name": "io.sentry.sentry-unity-lite",
+  "version": "1.0.1",
+  "displayName": "Sentry Unity Lite",
   "description": "Sentry SDK for Unity",
   "unity": "2018.1",
   "license": "MIT",
@@ -10,9 +10,9 @@
     "diagnostics"
   ],
   "author": {
-    "name": "Sentry (https://sentry.io) and individual contributors.",
-    "email": "sales@sentry.io",
-    "url": "https://github.com/getsentry/sentry-unity"
+    "name": "Sentry Application Monitoring",
+    "email": "oss@sentry.io",
+    "url": "https://github.com/getsentry/sentry-unity-lite"
   },
   "samples": [
     {

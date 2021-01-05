@@ -20,17 +20,8 @@ It supports any platform that you can target with Unity.
 
 Open the package manager, click the + icon, and add git url.
 
-In the field that opens, enter the url of the repo, i.e.:
-
 ```
-https://github.com/getsentry/sentry-unity-lite.git
-```
-
-If you wish to install a specific version you can do that as well by appending
-it to the url.
-
-```
-https://github.com/getsentry/sentry-unity-lite.git#1.0.0"
+https://github.com/getsentry/sentry-unity-lite.git#1.0.1
 ```
 
 #### Through unitypackage
@@ -46,8 +37,8 @@ You can also add it programatically. There can only be one `SentrySdk`
 in your whole project. To add it programatically do:
 
 ```C#
-var sentry = myGameObject.AddComponent(typeof(SentrySdk)) as SentrySdk;
-sentry.dsn = "__YOUR_DSN__"; // get it on sentry.io when you create a project, or on project settings.
+var sentry = gameObject.AddComponent<SentrySdk>();
+sentry.Dsn = "__YOUR_DSN__"; // get it on sentry.io when you create a project, or on project settings.
 ```
 
 The SDK needs to know which project within Sentry your errors should go to. That's defined via the DSN.
