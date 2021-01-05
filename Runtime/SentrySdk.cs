@@ -74,27 +74,27 @@ public class SentrySdk : MonoBehaviour
         _instance.DoAddBreadcrumb(message);
     }
 
-    public static void CaptureMessage(string message)
+    public static Coroutine CaptureMessage(string message)
     {
         if (_instance == null)
         {
-            return;
+            return null;
         }
 
-        _instance.DoCaptureMessage(message);
+        return _instance.DoCaptureMessage(message);
     }
 
-    public static void CaptureEvent(SentryEvent @event)
+    public static Coroutine CaptureEvent(SentryEvent @event)
     {
         if (_instance == null)
         {
-            return;
+            return null;
         }
 
-        _instance.DoCaptureEvent(@event);
+        return _instance.DoCaptureEvent(@event);
     }
 
-    private void DoCaptureMessage(string message)
+    private Coroutine DoCaptureMessage(string message)
     {
         if (Debug)
         {
@@ -106,17 +106,17 @@ public class SentrySdk : MonoBehaviour
             level = "info"
         };
 
-        DoCaptureEvent(@event);
+        return DoCaptureEvent(@event);
     }
 
-    private void DoCaptureEvent(SentryEvent @event)
+    private Coroutine DoCaptureEvent(SentryEvent @event)
     {
         if (Debug)
         {
             UnityDebug.Log("sending event to sentry.");
         }
 
-        StartCoroutine(ContinueSendingEvent(@event));
+        return StartCoroutine(ContinueSendingEvent(@event));
     }
 
     private void DoAddBreadcrumb(string message)
