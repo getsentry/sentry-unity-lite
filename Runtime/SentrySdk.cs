@@ -21,6 +21,8 @@ public class SentrySdk : MonoBehaviour
     public string Dsn;
     [Header("Send PII like User and Computer names")]
     public bool SendDefaultPii = true;
+    [Header("Enable auto generate breadcrumb")]
+    public bool AutoGenerateBreadcrumb = false;
     [Header("Enable SDK debug messages")]
     public bool Debug = true;
     [Header("Override game version")]
@@ -291,6 +293,11 @@ public class SentrySdk : MonoBehaviour
         _lastErrorMessage = condition;
         if (type != LogType.Error && type != LogType.Exception && type != LogType.Assert)
         {
+            if (AutoGenerateBreadcrumb) // add non-errors to the breadcrumb list
+            {
+                AddBreadcrumb(condition);
+            }
+
             // only send errors, can be set somewhere what we send and what we don't
             return;
         }
