@@ -28,6 +28,9 @@ public class SentrySdk : MonoBehaviour
     [Header("Override game version")]
     public string Version = "";
 
+    [Header("Capture errors from unity default logger")]
+    public bool AttachToUnityLogger = true;
+
     private string _lastErrorMessage = "";
     private Dsn _dsn;
     private bool _initialized = false;
@@ -148,12 +151,18 @@ public class SentrySdk : MonoBehaviour
 
     public void OnEnable()
     {
-        Application.logMessageReceived += OnLogMessageReceived;
+        if (AttachToUnityLogger)
+        {
+            Application.logMessageReceived += OnLogMessageReceived;
+        }
     }
 
     public void OnDisable()
     {
-        Application.logMessageReceived -= OnLogMessageReceived;
+        if (AttachToUnityLogger)
+        {
+            Application.logMessageReceived -= OnLogMessageReceived;
+        }
     }
 
     public void OnGUI()
