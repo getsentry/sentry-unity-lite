@@ -5,12 +5,17 @@
   <br />
 </p>
 
+_Bad software is everywhere, and we're tired of it. Sentry is on a mission to help developers write better software faster, so we can get back to enjoying technology. If you want to join us [<kbd>**Check out our open positions**</kbd>](https://sentry.io/careers/)_
+
 Sentry (lite) SDK for Unity
 ===========
 
-This is the stable Sentry SDK for Unity. It's running in production in many games and sends millions of events every month to [sentry.io](sentry.io).
+> This is the stable Sentry SDK for Unity. It's running in production in many games and sends millions of events every month to [sentry.io](sentry.io).
 If you are used to other Sentry SDKs, you might find that the API here is smaller. This is by design, and this SDK is lightweight and compile with your game.
 It supports any platform that you can target with Unity.
+
+**Sentry is working on a complete SDK for Unity with features such as Release Health, Native Crash Reporting and Performance Monitoring.
+If you'd like to learn more check out [sentry-unity](https://github.com/getsentry/sentry-unity) or join us on Discord, #unity: [![Discord Chat](https://img.shields.io/discord/621778831602221064?logo=discord&logoColor=ffffff&color=7389D8)](https://discord.gg/PXa5Apfe7K)**
 
 ### Installation
 
@@ -21,7 +26,7 @@ It supports any platform that you can target with Unity.
 Open the package manager, click the + icon, and add git url.
 
 ```
-https://github.com/getsentry/sentry-unity-lite.git#1.0.2
+https://github.com/getsentry/sentry-unity-lite.git#1.0.3
 ```
 
 #### Through unitypackage
