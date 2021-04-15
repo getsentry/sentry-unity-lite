@@ -357,11 +357,9 @@ namespace Sentry
         }
     }
 
-    // Unity doesn't serialize Dictionary
     [Serializable]
-    public class Tags
+    public class Tags : Dictionary<string, string>
     {
-        public string deviceUniqueIdentifier;
     }
 
     [Serializable]

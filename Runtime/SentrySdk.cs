@@ -4,8 +4,10 @@ using System.Collections;
 #endif
 using System.Collections.Generic;
 using System.Text;
+using Newtonsoft.Json;
 using UnityEngine;
 using Sentry;
+using UnityEngine.Events;
 using UnityEngine.Networking;
 using UnityDebug = UnityEngine.Debug;
 
@@ -33,6 +35,8 @@ public class SentrySdk : MonoBehaviour
     private bool _initialized = false;
 
     private static SentrySdk _instance = null;
+
+    public static event Action<SentryEvent> ModifySentryEvent;
 
     public void Start()
     {
@@ -334,9 +338,11 @@ public class SentrySdk : MonoBehaviour
             @event.contexts.device.name = SystemInfo.deviceName;
         }
 
-        @event.tags.deviceUniqueIdentifier = SystemInfo.deviceUniqueIdentifier;
+        @event.tags.Add("deviceUniqueIdentifier", SystemInfo.deviceUniqueIdentifier);
         @event.extra.unityVersion = Application.unityVersion;
         @event.extra.screenOrientation = Screen.orientation.ToString();
+
+        ModifySentryEvent?.Invoke(@event);
     }
 
     private IEnumerator
@@ -344,12 +350,11 @@ public class SentrySdk : MonoBehaviour
         <UnityWebRequestAsyncOperation>
 #endif
         ContinueSendingEvent<T>(T @event)
-            where T : SentryEvent
+        where T : SentryEvent
     {
         PrepareEvent(@event);
 
-        var s = JsonUtility.ToJson(@event);
-
+        var jsonString = JsonConvert.SerializeObject(@event);
         var sentryKey = _dsn.publicKey;
         var sentrySecret = _dsn.secretKey;
 
@@ -365,7 +370,7 @@ public class SentrySdk : MonoBehaviour
         var www = new UnityWebRequest(_dsn.callUri.ToString());
         www.method = "POST";
         www.SetRequestHeader("X-Sentry-Auth", authString);
-        www.uploadHandler = new UploadHandlerRaw(Encoding.UTF8.GetBytes(s));
+        www.uploadHandler = new UploadHandlerRaw(Encoding.UTF8.GetBytes(jsonString));
         www.downloadHandler = new DownloadHandlerBuffer();
 #if UNITY_5
         yield return www.Send();
