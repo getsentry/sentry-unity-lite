@@ -17,6 +17,10 @@ It supports any platform that you can target with Unity.
 **Sentry is working on a complete SDK for Unity with features such as Release Health, Native Crash Reporting and Performance Monitoring.
 If you'd like to learn more check out [sentry-unity](https://github.com/getsentry/sentry-unity) or join us on Discord, #unity: [![Discord Chat](https://img.shields.io/discord/621778831602221064?logo=discord&logoColor=ffffff&color=7389D8)](https://discord.gg/PXa5Apfe7K)**
 
+# We are currently not accepting PRs for new features on this repository.
+
+Bug fixes are most welcomed and we'll continue to support the code base for security and bug fixes. But any new development, [plhttps://github.com/getsentry/sentry-unitye refer to Sentry Unity](url).
+
 ### Installation
 
 #### Through the package manager
