@@ -483,11 +483,13 @@ namespace Sentry
 
         public string timestamp;
         public string message;
+        public string level;
 
-        public Breadcrumb(string timestamp, string message)
+        public Breadcrumb(string timestamp, string message, string level)
         {
             this.timestamp = timestamp;
             this.message = message;
+            this.level = level;
         }
 
         /* combine breadcrumbs from array[], start & count into List<Breadcrumb> */
