@@ -19,7 +19,7 @@ If you'd like to learn more check out [sentry-unity](https://github.com/getsentr
 
 # We are currently not accepting PRs for new features on this repository.
 
-Bug fixes are most welcomed and we'll continue to support the code base for security and bug fixes. But any new development, [plhttps://github.com/getsentry/sentry-unitye refer to Sentry Unity](url).
+Bug fixes are most welcomed and we'll continue to support the code base for security and bug fixes. But any new development, [refer to Sentry Unity](https://github.com/getsentry/sentry-unity).
 
 ### Installation
 
