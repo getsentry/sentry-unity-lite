@@ -34,6 +34,8 @@ public class SentrySdk : MonoBehaviour
 
     private static SentrySdk _instance = null;
 
+    private bool _isLogAttached;
+
     public void Start()
     {
         if (Dsn == string.Empty)
@@ -146,14 +148,27 @@ public class SentrySdk : MonoBehaviour
             _noBreadcrumbs);
     }
 
-    public void OnEnable()
+    public void OnEnabled()
     {
-        Application.logMessageReceived += OnLogMessageReceived;
+        SetDefaultLogAttached(true);
     }
 
     public void OnDisable()
     {
-        Application.logMessageReceived -= OnLogMessageReceived;
+        SetDefaultLogAttached(false);
+    }
+
+    public void SetDefaultLogAttached(bool attached)
+    {
+        if (attached && !_isLogAttached)
+        {
+            Application.logMessageReceived += OnLogMessageReceived;
+        }
+        else if (!attached && _isLogAttached)
+        {
+            Application.logMessageReceived -= OnLogMessageReceived;
+        }
+        _isLogAttached = attached;
     }
 
     public void OnGUI()
