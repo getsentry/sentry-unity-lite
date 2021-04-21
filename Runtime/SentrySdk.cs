@@ -66,6 +66,8 @@ public class SentrySdk : MonoBehaviour
         }
     }
 
+    public static void AddBreadcrumb(string message) => AddBreadcrumb(message, "info");
+
     public static void AddBreadcrumb(string message, string level)
     {
         if (_instance == null)
