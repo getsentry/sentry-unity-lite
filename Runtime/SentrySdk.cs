@@ -66,14 +66,14 @@ public class SentrySdk : MonoBehaviour
         }
     }
 
-    public static void AddBreadcrumb(string message)
+    public static void AddBreadcrumb(string message, string level)
     {
         if (_instance == null)
         {
             return;
         }
 
-        _instance.DoAddBreadcrumb(message);
+        _instance.DoAddBreadcrumb(message, level);
     }
 
     public static Coroutine CaptureMessage(string message)
@@ -121,7 +121,7 @@ public class SentrySdk : MonoBehaviour
         return StartCoroutine(ContinueSendingEvent(@event));
     }
 
-    private void DoAddBreadcrumb(string message)
+    private void DoAddBreadcrumb(string message, string level)
     {
         if (!_initialized)
         {
@@ -130,7 +130,7 @@ public class SentrySdk : MonoBehaviour
         }
 
         var timestamp = DateTime.UtcNow.ToString("yyyy-MM-ddTHH\\:mm\\:ss");
-        _breadcrumbs[_lastBreadcrumbPos] = new Breadcrumb(timestamp, message);
+        _breadcrumbs[_lastBreadcrumbPos] = new Breadcrumb(timestamp, message, level);
         _lastBreadcrumbPos += 1;
         _lastBreadcrumbPos %= Breadcrumb.MaxBreadcrumbs;
         if (_noBreadcrumbs < Breadcrumb.MaxBreadcrumbs)
@@ -295,7 +295,7 @@ public class SentrySdk : MonoBehaviour
         {
             if (AutoGenerateBreadcrumb) // add non-errors to the breadcrumb list
             {
-                AddBreadcrumb(condition);
+                AddBreadcrumb(condition, type == LogType.Warning ? "warning" : "info");
             }
 
             // only send errors, can be set somewhere what we send and what we don't
