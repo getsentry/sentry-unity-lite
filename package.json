@@ -1,6 +1,6 @@
 {
   "name": "io.sentry.sentry-unity-lite",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "displayName": "Sentry Unity Lite",
   "description": "Sentry SDK for Unity",
   "unity": "2018.1",
@@ -11,7 +11,7 @@
   ],
   "author": {
     "name": "Sentry Application Monitoring",
-    "email": "oss@sentry.io",
+    "email": "sdks@sentry.io",
     "url": "https://github.com/getsentry/sentry-unity-lite"
   },
   "samples": [
