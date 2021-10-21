@@ -33,10 +33,6 @@ Open the package manager, click the + icon, and add git url.
 https://github.com/getsentry/sentry-unity-lite.git#1.0.3
 ```
 
-#### Through unitypackage
-
-The [Releases page](https://github.com/getsentry/sentry-unity-lite/releases) include a `.unitypackage` which you can simply drag and drop into your project.
-
 ### Usage
 
 In order to make Sentry work, you need to add `SentrySdk` component to any
