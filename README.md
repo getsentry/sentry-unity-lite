@@ -30,7 +30,7 @@ Bug fixes are most welcomed and we'll continue to support the code base for secu
 Open the package manager, click the + icon, and add git url.
 
 ```
-https://github.com/getsentry/sentry-unity-lite.git#1.0.3
+https://github.com/getsentry/sentry-unity-lite.git#1.0.4
 ```
 
 ### Usage
